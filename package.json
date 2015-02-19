@@ -1,0 +1,15 @@
+{
+    "author": {
+        "name": "Florian Roy"
+    },
+    "description": "Polymer wrapper for tinymce",
+    "devDependencies": {
+        "web-component-tester": "~2.0.1"
+    },
+    "name": "tinymce-decorator",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com:display-interactive/tinymce-decorator.git"
+    },
+    "version": "0.0.1"
+}

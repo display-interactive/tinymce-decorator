@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <title>seed-element</title>
+
+    <!-- Import dependencies -->
+    <script src="../../webcomponentsjs/webcomponents.min.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../../polymer/polymer.html">
+    <link rel="import" href="../tinymce-decorator.html">
+</head>
+
+<body>
+
+<tinymce-decorator>
+    <textarea id="test"></textarea>
+</tinymce-decorator>
+
+<script>
+    suite('<tinymce-decorator>', function() {
+
+        test('exists', function() {
+            var el = document.getElementById('test');
+            assert.isNotNull(el);
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var el = document.getElementById('test');
+                assert.isNotNull(el);
+                done();
+            });
+        });
+
+
+        test('tinymce init', function(done) {
+            document.addEventListener('DOMContentLoaded', function() {
+                var inst  = document.querySelector('.mce-tinymce');
+                assert.isNotNull(inst);
+                done();
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

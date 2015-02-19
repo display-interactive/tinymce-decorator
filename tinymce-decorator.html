@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer.html">
+<script type="text/javascript" src="../tinymce/tinymce.min.js"></script>
+
+<polymer-element name="tinymce-decorator" attributes="content_css baseUrl plugins menubar toolbar">
+    <template>
+        <content></content>
+    </template>
+    <script>
+        Polymer('tinymce-decorator', {
+            /**
+             * @see tinymce config
+             */
+            content_css: null,
+            baseUrl: null,
+            plugins: '',
+            menubar: false,
+            toolbar: "bold italic title",
+
+            /**
+             * Textarea where tinymce is instantiate
+             * @return {HTMLElement}
+             */
+            element: null,
+
+            /**
+             * DOMReady
+             */
+            ready: function() {
+                if (null !== this.baseUrl)
+                    tinyMCE.baseURL = this.baseUrl;
+
+                this.element = this.querySelector('textarea');
+                this._initTinyMCE();
+            },
+
+            /**
+             * Init tinyMCE
+             * @private
+             */
+            _initTinyMCE: function () {
+                var that = this;
+                var config = {
+                    selector: '#' + this.element.id,
+                    plugins: this.plugins,
+                    menubar: this.menubar,
+                    toolbar: [this.toolbar],
+
+                    setup: function(editor) {
+                        editor.addButton('title', {
+                            title : 'Title',
+                            text: 'Title',
+                            image : false,
+                            onclick : function() {
+                                editor.execCommand('RemoveFormat', false, 'h3');
+                                editor.execCommand('FormatBlock', false, 'h3');
+                            }
+                        });
+
+                        editor.on('change', function(e) {
+                            that.element.value = editor.getContent();
+                        });
+
+                        editor.on('keyup', function(e) {
+                            that.element.value = editor.getContent();
+                        });
+                    }
+                };
+
+                if (this.content_css) {
+                    config.content_css = this.content_css;
+                }
+
+                tinymce.init(config);
+            }
+        });
+    </script>
+</polymer-element>
