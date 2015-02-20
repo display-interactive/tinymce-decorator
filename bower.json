@@ -15,7 +15,7 @@
     ],
     "keywords": ["Polymer", "web-components", "tinymce", "wysiwyg"],
     "dependencies": {
-        "polymer": "Polymer/polymer#~0.5.4",
+        "polymer": "Polymer/polymer#master",
         "tinymce": "*"
 
     },
