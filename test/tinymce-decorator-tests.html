@@ -33,13 +33,12 @@
             });
         });
 
-
         test('tinymce init', function(done) {
-            document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
                 var inst  = document.querySelector('.mce-tinymce');
                 assert.isNotNull(inst);
                 done();
-            });
+            }, 300);
         });
     });
 </script>

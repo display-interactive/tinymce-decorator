@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <meta charset="utf-8">
     <title>tinymce demo</title>
-    <script src="../webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href="tinymce-decorator.html">
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../tinymce-decorator.html">
     <style>
         #container {
             padding-top: 15%;
@@ -24,5 +24,10 @@
         <textarea id="test"></textarea>
     </tinymce-decorator>
 </div>
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        document.body.removeAttribute('unresolved');
+    }, false);
+</script>
 </body>
 </html>

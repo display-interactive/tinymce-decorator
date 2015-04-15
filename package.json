@@ -4,12 +4,12 @@
     },
     "description": "Polymer wrapper for tinymce",
     "devDependencies": {
-        "web-component-tester": "~2.0.1"
+        "web-component-tester": "~2.*"
     },
     "name": "tinymce-decorator",
     "repository": {
         "type": "git",
         "url": "https://github.com:display-interactive/tinymce-decorator.git"
     },
-    "version": "0.0.1"
+    "version": "0.2"
 }
