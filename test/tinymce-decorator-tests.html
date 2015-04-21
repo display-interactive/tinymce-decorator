@@ -22,20 +22,14 @@
 <script>
     suite('<tinymce-decorator>', function() {
 
-        test('exists', function() {
+        test('exists and tinymce instanciate', function() {
             var el = document.getElementById('test');
             assert.isNotNull(el);
 
             document.addEventListener('DOMContentLoaded', function() {
                 var el = document.getElementById('test');
                 assert.isNotNull(el);
-                done();
-            });
-        });
 
-
-        test('tinymce init', function(done) {
-            document.addEventListener('DOMContentLoaded', function() {
                 var inst  = document.querySelector('.mce-tinymce');
                 assert.isNotNull(inst);
                 done();
