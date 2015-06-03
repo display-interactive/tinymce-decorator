@@ -4,7 +4,7 @@
     },
     "description": "Polymer wrapper for tinymce",
     "devDependencies": {
-        "web-component-tester": "~2.*"
+        "web-component-tester": "~3.*"
     },
     "name": "tinymce-decorator",
     "repository": {
