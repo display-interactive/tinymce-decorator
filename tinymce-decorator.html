@@ -50,7 +50,9 @@
                 tinyMCE.baseURL = this.baseUrl;
 
             this.element = Polymer.dom(this).querySelector('textarea');
-            this._initTinyMCE();
+            this.async(function() {
+                this._initTinyMCE();
+            });
         },
 
         /**
