@@ -45,14 +45,12 @@
         /**
          * DOMReady
          */
-        ready: function() {
+        attached: function() {
             if (null !== this.baseUrl)
                 tinyMCE.baseURL = this.baseUrl;
 
             this.element = Polymer.dom(this).querySelector('textarea');
-            this.async(function() {
-                this._initTinyMCE();
-            });
+            this._initTinyMCE();
         },
 
         /**
