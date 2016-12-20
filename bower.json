@@ -1,0 +1,25 @@
+{
+    "name": "tinymce-decorator",
+    "version": "0.2",
+    "authors": [
+        "Florian Roy"
+    ],
+    "description": "Polymer wrapper for tinymce",
+    "main": "element/*",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "keywords": ["Polymer", "web-components", "tinymce", "wysiwyg"],
+    "dependencies": {
+        "polymer": "Polymer/polymer#^1.2.*",
+        "tinymce": "*"
+
+    },
+    "devDependencies": {
+        "web-component-tester": "*"
+    }
+}
