@@ -5,7 +5,7 @@
         "Florian Roy"
     ],
     "description": "Polymer wrapper for tinymce",
-    "main": "element/*",
+    "main": "tinymce-decorator.html",
     "ignore": [
         "**/.*",
         "node_modules",
