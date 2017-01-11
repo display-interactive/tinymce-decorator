@@ -71,8 +71,13 @@
                         text: 'Title',
                         image : false,
                         onclick : function() {
-                            editor.execCommand('RemoveFormat', false, 'h3');
                             editor.execCommand('FormatBlock', false, 'h3');
+                        },
+                        onPostRender: function() {
+                            var _this = this;
+                            editor.on('NodeChange', function(e) {
+                                _this.active(editor.selection.getNode().tagName === 'H3');
+                            })
                         }
                     });
 
@@ -83,6 +88,7 @@
                     editor.on('keyup', function(e) {
                         that.element.value = editor.getContent();
                     });
+
                 }
             };
 

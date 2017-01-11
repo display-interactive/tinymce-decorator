@@ -15,8 +15,16 @@
 
 <body>
 
-<tinymce-decorator>
-    <textarea id="test"></textarea>
+<tinymce-decorator id="editor">
+    <textarea id="test">
+        &lt;p&gt;Smoked Shetland salmon tartare, pickled cucumber and radish salad&lt;br /&gt;&lt;br /&gt;Asparagus spears, quail eggs and Caesar dressing&lt;/p&gt;
+&lt;h3&gt;Dish&lt;/h3&gt;
+&lt;p&gt;Seared fillet of beef with barbeque sauce, spicy potato wedges, Mediterranean vegetables &lt;br /&gt;&lt;br /&gt; Penne pasta with red pepper pesto, basil and chilli sauce, courgette and piquillo&lt;/p&gt;
+&lt;h3&gt;Cheese&lt;/h3&gt;
+&lt;p&gt;Barber&amp;rsquo;s Cheddar and Somerset Camembert cheese served with quince jelly and biscuits&lt;/p&gt;
+&lt;h3&gt;Dessert&lt;/h3&gt;
+&lt;p&gt;Dark chocolate fondant with caramel centre and caramel sauce&lt;br /&gt;&lt;br /&gt;Vanilla and dulce de leche ice cream by The Ice Cream Union&lt;/p&gt;
+    </textarea>
 </tinymce-decorator>
 
 <script>
@@ -38,6 +46,27 @@
                 var inst  = document.querySelector('.mce-tinymce');
                 assert.isNotNull(inst);
                 done();
+            }, 300);
+        });
+
+        test('test button', function(done) {
+            setTimeout(function() {
+                var e = tinyMCE.activeEditor;
+                var tag = e.contentDocument.querySelector('h3');
+                e.selection.select(tag);
+
+                setTimeout(function () {
+                    var buttons = e.theme.panel.find('toolbar *');
+                    for (var i = 0; i < buttons.length; i++) {
+                        if (buttons[i].settings.icon === 'bold') {
+                            assert.isFalse(buttons[i].state.data.active);
+                        }
+                        if (buttons[i].settings.title === 'Title') {
+                            assert.isTrue(buttons[i].state.data.active);
+                        }
+                    }
+                    done();
+                }, 1);
             }, 300);
         });
     });
