@@ -76,7 +76,21 @@
                         onPostRender: function() {
                             var _this = this;
                             editor.on('NodeChange', function(e) {
-                                _this.active(editor.selection.getNode().tagName === 'H3');
+                                var node = editor.selection.getNode();
+                                if (node.tagName === 'H3') {
+                                    _this.active(true);
+                                } else {
+                                    var parent = node.parentNode;
+                                    while (parent && parent.tagName !== 'BODY') {
+                                        if (parent.tagName === 'H3') {
+                                            _this.active(true);
+                                            return;
+                                        }
+
+                                        parent = parent.parentNode;
+                                    }
+                                    _this.active(false);
+                                }
                             })
                         }
                     });
