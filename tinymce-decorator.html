@@ -77,8 +77,10 @@
                             var _this = this;
                             editor.on('NodeChange', function(e) {
                                 var node = editor.selection.getNode();
+
                                 if (node.tagName === 'H3') {
                                     _this.active(true);
+                                    return;
                                 } else {
                                     var parent = node.parentNode;
                                     while (parent && parent.tagName !== 'BODY') {
@@ -89,7 +91,12 @@
 
                                         parent = parent.parentNode;
                                     }
-                                    _this.active(false);
+                                }
+
+                                var firstChild = node.firstChild;
+                                console.log(node, firstChild);
+                                if (firstChild) {
+                                    _this.active(firstChild.tagName === 'H3');
                                 }
                             })
                         }
